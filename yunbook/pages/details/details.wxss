@@ -1,0 +1,96 @@
+
+.img_box{
+    display: flex;
+    padding: 20rpx;
+    justify-content: space-between;
+}
+.img_box image{
+    width: 200rpx;
+    height: 240rpx;
+}
+.img_boxr{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 460rpx;
+}
+.img_box text{
+    font-size: 14px;
+}
+.img_boxr_t{
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+
+/* 按钮 */
+.btn_box{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 4rpx;
+    padding: 16rpx 16rpx 24rpx 16rpx;
+    border-bottom: 8rpx solid #e9e9e9;
+}
+.btn_box button{
+    width: 280rpx;
+    height: 60rpx;
+    margin: 0;
+    line-height: 60rpx;
+    text-align: center;
+    background: #e9e9e9;
+    border-radius: 10rpx;
+    border:none;
+    font-size: 14px;
+    color: #333;
+}
+/* 简介+查看目录 */
+.content{
+    margin: 0 4rpx;
+    border-bottom: 8rpx solid #e9e9e9;
+}
+/* 简介 */
+.cont_top{
+    margin: 0 4rpx;
+    padding: 0 16rpx;
+    border-bottom: 2rpx solid #e9e9e9
+}
+.cont_top .cont_topt{
+    line-height: 80rpx;
+    font-size: 16px;
+    font-weight: 700;
+}
+.cont_top .cont_top_cont{
+    line-height: 2;
+    font-size: 12px;
+    padding-bottom: 10rpx;
+}
+
+/* 查看目录 */
+.cont_mulu{
+  padding:0 20rpx;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 50px;
+}
+.cont_mulu_l .cont_mulu_l_zt{
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    padding-right: 20rpx;
+}
+
+/* 底部 */
+.fotter{
+    font-size: 12px;
+    text-align: center;
+    position: fixed;
+    left: 20rpx;
+    bottom: 20rpx;
+    right: 20rpx;
+    border-radius: 10rpx;
+    background: #409FFF;
+    color: #fff;
+    line-height: 60rpx;
+}

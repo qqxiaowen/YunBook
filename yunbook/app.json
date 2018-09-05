@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/details/details",
+    "pages/bookmulu/bookmulu",
+    "pages/book/book"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "云猿书",
+    "navigationBarTextStyle": "black"
+  }
+}

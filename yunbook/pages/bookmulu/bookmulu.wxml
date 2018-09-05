@@ -1,0 +1,8 @@
+<view class="container catalog">
+  <view wx:for='{{bookMuli}}' wx:key='{{index}}' class="catalog-item">
+  <!-- url后传了两个查询字符串，第一个是章节的id第二个是书的id -->
+    <navigator  class="link" url="{{'/pages/book/book?_id=' + item._id + '&bookId=' + item.bookId}}">
+      {{item.title}}
+    </navigator>
+  </view>
+</view>
