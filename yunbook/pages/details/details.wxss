@@ -92,5 +92,6 @@
     border-radius: 10rpx;
     background: #409FFF;
     color: #fff;
-    line-height: 60rpx;
+    height: 70rpx;
+    line-height: 70rpx;
 }

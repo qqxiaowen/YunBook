@@ -1,7 +1,6 @@
-<import src="/towxml/entry.wxml"/>
 <view class='book'>
-  <view class='mdcont' wx:if="{{!isLoading}}">
-    <template is="entry" data="{{...article}}"/>
+  <view class='mdcont' wx:if="{{!isLoading}}" style='{{"font-size:"+ font +"rpx"}}'>
+    <wemark md="{{article}}" link highlight type="wemark"></wemark>
   </view>
 
   <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
@@ -19,8 +18,8 @@
   <view class="menu">
     <view class="iconfont icon-31fanhui1"></view>
     <view class="iconfont icon-31leimu" bindtap="toggleCatalog"></view>
-    <view class="iconfont icon-yueduye_zitizengda"></view>
-    <view class="iconfont icon-yueduye_zitijianxiao"></view>
+    <view class="iconfont icon-yueduye_zitizengda" bindtap='toFontsAdd'></view>
+    <view class="iconfont icon-yueduye_zitijianxiao" bindtap='toFontsRud'></view>
     <view class="iconfont icon-31fanhui2"></view>
   </view>
 

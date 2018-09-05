@@ -15,7 +15,8 @@ Page({
     bookMuli:'',
     // 是否显示菜单
     isShow:false,
-    isLoading: true
+    isLoading: true,
+    font:40
   },
 
   onLoad: function (options) {
@@ -28,14 +29,13 @@ Page({
     this.getCatalog()
   },
 
-  // 渲染mardown数据
+  // 取得mardown数据
   getbookcont(){
     fetch.get(`/article/${this.data.bookchapter}`).then(res=>{
-      //将markdown内容转换为towxml数据
-      let data = app.towxml.toJson(res.data.article.content, 'markdown');
 
       this.setData({
-        article:data,
+        // article:data,
+        article: res.data.article.content,
         isLoading:false
       })
     })
@@ -68,6 +68,27 @@ Page({
     })
     // 根据新的章节id去冲亲请求数据
     this.getbookcont()
+  },
+
+  // 点击增大字体
+  toFontsAdd(){
+    this.setData({
+      font:this.data.font +2
+    })
+  },
+  // 点击缩小字体
+  toFontsRud(){
+    if (this.data.font<=26){
+      wx.showModal({
+        title: '小提示',
+        content: '字体太小，对眼镜不好喲',
+        showCancel:false
+      })
+    }else{
+      this.setData({
+        font:this.data.font-2
+      })
+    }
   },
   
 
