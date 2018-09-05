@@ -16,7 +16,8 @@ Page({
     // 是否显示菜单
     isShow:false,
     isLoading: true,
-    font:40
+    font:40,
+    index:''
   },
 
   onLoad: function (options) {
@@ -36,7 +37,8 @@ Page({
       this.setData({
         // article:data,
         article: res.data.article.content,
-        isLoading:false
+        index: res.data.article.index,
+        isLoading:false,
       })
     })
   },
@@ -47,6 +49,8 @@ Page({
       this.setData({
         bookMuli: res.data
       })
+
+      // console.log(res.data)
     })
   },
   // 点击菜单去弹出菜单
@@ -66,7 +70,7 @@ Page({
       isShow: !this.data.isShow,
       isLoading: true
     })
-    // 根据新的章节id去冲亲请求数据
+    // 根据新的章节id去重新请求数据
     this.getbookcont()
   },
 
@@ -88,6 +92,41 @@ Page({
       this.setData({
         font:this.data.font-2
       })
+    }
+  },
+  // 实现点击下一章
+  NextChapter(){
+    // console.log(this.data.index)
+    // console.log(this.data.bookMuli[this.data.index])
+    if (this.data.bookMuli[this.data.index + 1]){
+      this.setData({
+        bookchapter: this.data.bookMuli[this.data.index + 1]._id,
+        isLoading: true
+      })
+      this.getbookcont()
+    }else{
+      wx.showModal({
+        title: '小提示',
+        content: '已经是最后一章啦',
+        showCancel: false
+      })
+    }
+  },
+
+  // 点击实现上一章
+  PrevChapter(){
+    if (this.data.index - 1 < 0) {
+      wx.showModal({
+        title: '小提示',
+        content: '已经是第一章啦',
+        showCancel: false
+      })
+    }else{
+      this.setData({
+        bookchapter: this.data.bookMuli[this.data.index - 1]._id,
+        isLoading: true
+      })
+      this.getbookcont()
     }
   },
   

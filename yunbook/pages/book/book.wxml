@@ -16,11 +16,11 @@
 
   <!-- 菜单 -->
   <view class="menu">
-    <view class="iconfont icon-31fanhui1"></view>
+    <view class="iconfont icon-31fanhui1" bindtap='PrevChapter'></view>
     <view class="iconfont icon-31leimu" bindtap="toggleCatalog"></view>
     <view class="iconfont icon-yueduye_zitizengda" bindtap='toFontsAdd'></view>
     <view class="iconfont icon-yueduye_zitijianxiao" bindtap='toFontsRud'></view>
-    <view class="iconfont icon-31fanhui2"></view>
+    <view class="iconfont icon-31fanhui2" bindtap='NextChapter'></view>
   </view>
 
 
