@@ -3,12 +3,10 @@
 }
 .loading {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 998;
-  width: 350rpx;
-  height: 350rpx;
 }
 .LunBo{
   padding:0 20rpx;

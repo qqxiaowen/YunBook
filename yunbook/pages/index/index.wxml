@@ -1,43 +1,55 @@
 <!--index.wxml-->
 
   <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
-
-<!-- 轮播部分 -->
-<view class='LunBo index'>
-  <swiper indicator-dots="{{indicatorDots}}" 
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{LunBodata}}" wx:key="{{index}}">
-      <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
-        <image src="{{item.img}}" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
-
 <!-- 首页内容 -->
-<view class='big_box' wx:for="{{mainContent}}" wx:key="{{index}}">
-<!-- 第一个分类 -->
-  <view class='item_fenlei'>
-    <view class='item_books_bt'>{{item.title}}</view>
-  <!-- 第一个书 -->
-    <view class='item_book' wx:for='{{item.books}}'  wx:key="{{index}}">
-      <image src='{{item.img}}'></image>
-      <view class='item_book_r'>
-        <view class='iten_bookr_t'>
-         {{item.title}}
-        </view>
-        <view class='item_bookr_cont'>
-         {{item.desc}}
-        </view>
-        <view class='item_bookr_botm'>
-          <view class='item_bookr_botm_left'>{{item.author}}</view>
-          <view class='item_bookr_botm_right'>两天前 后端开发 {{item.looknums}}人再看</view>
+<view wx:if="{{!isLoading}}">
+  <!-- 轮播部分 -->
+  <view class='LunBo index'>
+    <swiper indicator-dots="{{indicatorDots}}" 
+      autoplay="true" interval="3000" duration="{{duration}}">
+      <block wx:for="{{LunBodata}}" wx:key="{{index}}">
+        <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
+          <image src="{{item.img}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 轮播下内容 -->
+  <view class='big_box' wx:for="{{mainContent}}" wx:key="{{index}}">
+  <!-- 第一个分类 -->
+    <view class='item_fenlei'>
+      <view class='item_books_bt'>{{item.title}}</view>
+    <!-- 第一个书 -->
+      <view class='item_book' wx:for='{{item.books}}'  wx:key="{{index}}" bindtap='jumpBook' data-id="{{item._id}}">
+        <image src='{{item.img}}'></image>
+        <view class='item_book_r'>
+          <view class='iten_bookr_t'>
+          {{item.title}}
+          </view>
+          <view class='item_bookr_cont'>
+          {{item.desc}}
+          </view>
+          <view class='item_bookr_botm'>
+            <view class='item_bookr_botm_left'>{{item.author}}</view>
+            <view class='item_bookr_botm_right'>两天前 后端开发 {{item.looknums}}人再看</view>
+          </view>
         </view>
       </view>
+    <!-- 第二个书 -->
+      
     </view>
-  <!-- 第二个书 -->
-    
+    <!-- 第二个分类 -->
   </view>
-  <!-- 第二个分类 -->
+  <!-- 上拉加载 -->
+  <view wx:if="{{offon}}"  class="loadmore">
+      <image src="/static/img/loadMore.svg" ></image>
+      <text>数据正拼命加载中...</text>
+    </view>
+  <view  wx:else="{{!offon}}" class="no-more">
+      <text>到底啦</text>
+      <text class="line"></text>
+  </view>
+  
 </view>
 

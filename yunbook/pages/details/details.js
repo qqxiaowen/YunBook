@@ -34,6 +34,44 @@ Page({
     wx.navigateTo({
       url: `/pages/bookmulu/bookmulu?id=${this.data.bookId}`
     })
-  }
+  },
+  // 转发
+  onShareAppMessage(res) {
+    if(res.from === 'button'){
+      console.log('点击按钮分享')
+    }
+    return {
+      title: this.data.bookInfor.data.title,
+      path: `/pages/details/details?id=${this.data.bookId}`,
+      imageUrl: this.data.bookInfor.data.img
+    }
+  },
 
+  // 点击收藏该书 
+  getShouCang(){
+
+    let bookInfor = this.data.bookInfor
+    if (bookInfor.isCollect == 0) {
+      fetch.post('/collection', {
+        bookId: this.data.bookId
+      }).then(res => {
+        wx.showToast({
+          title: '收藏成功',
+          duration: 1000
+        })
+        console.log(bookInfor)
+        bookInfor.isCollect = 1
+        this.setData({
+          bookInfor
+        })
+      })
+    }else{
+      wx.showToast({
+        title: '已经收藏过啦',
+        duration: 1000
+      })
+    }
+
+
+  }
 })

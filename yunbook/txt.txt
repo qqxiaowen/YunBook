@@ -1,1 +1,0 @@
- 这个gitHub 的远程仓库名是orgin 不是origin！
