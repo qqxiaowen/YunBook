@@ -49,6 +49,7 @@ Page({
   jumpBook(e){
     // console.log(e.currentTarget.dataset)
     const id = e.currentTarget.dataset.id
+    console.log(id)
     wx.navigateTo({
       url: `/pages/details/details?id=${id}`,
     })
@@ -70,7 +71,7 @@ Page({
         pn: this.data.pn + 1
       })
       this.getMoreContent().then(res => {
-        // console.log(res.data)
+        console.log(res.data)
         this.setData({
           mainContent: [...this.data.mainContent, ...res.data]
         })
@@ -85,15 +86,13 @@ Page({
   // 监听下拉事件
   onPullDownRefresh(){
     this.setData({
-      isLoading:true
+      isLoading:true,
+      pn: 1,
+      offon: true
     })
     Promise.all([this.getContent(),this.getData()]).then(()=>{
       // console.log('刷新了')
       wx.stopPullDownRefresh()
-      this.setData({
-        pn: 1,
-        offon: true
-      })
     }).catch(err=>{
 
     })

@@ -9,7 +9,7 @@
     </view>
   <!-- 收藏关注 -->
     <view class='coll_gz'>
-      <view class='mycoll'>
+      <view class='mycoll' bindtap='jumpcoreDetail'>
         <text>{{corenum}}</text>
         <text>收藏</text>
       </view>

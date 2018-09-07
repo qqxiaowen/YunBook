@@ -1,2 +1,23 @@
-<!--pages/myColl/myColl.wxml-->
-<text>pages/myColl/myColl.wxml</text>
+<view class='big_box'>
+  <view class='item_coll' wx:for="{{mycoll}}" wx:key="{{index}}">
+    <image src='{{item.book.img}}'></image>
+    <view class='item_coll_right'>
+      <view class='item_biaoti'>{{item.book.title}}</view>
+      <view class='item_zhangjie'>书籍11/27章节</view>
+      <view class='item_jindu'>
+        <view class='item_t'>
+          <view>进度条</view>
+          <view>已看66%</view>
+        </view>
+        <view class='item_b'>
+          <view>上次查看：数值的扩展</view>
+          <view>1分前</view>
+        </view>
+      </view>
+      <view class='item_btn'>
+        <button>继续阅读</button>  
+        <button>查看文档</button>  
+      </view>
+    </view>
+  </view>
+</view>

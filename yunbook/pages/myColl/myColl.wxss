@@ -1,1 +1,61 @@
-/* pages/myColl/myColl.wxss */
+.big_box{
+    padding: 0 20rpx;
+}
+.item_coll{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40rpx;
+}
+.item_coll image{
+    width: 220rpx;
+    height: 280rpx;
+    margin-right: 10rpx;
+}
+.item_coll_right{
+    width:474rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #757575;
+}
+.item_biaoti{
+    color: #333;
+    font-size: 15px;
+}
+.item_jindu{
+    
+}
+.item_jindu .item_t{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16rpx;
+}
+.item_jindu .item_t :last-child{
+    text-align: right;
+}
+.item_jindu .item_b{
+    display: flex;
+    justify-content: space-between;
+}
+.item_jindu .item_b:first-child{
+    width: 200rpx;
+}
+.item_jindu .item_b:last-child{
+    text-align: right;
+}
+.item_btn{
+    display: flex;
+    justify-content: space-around;
+}
+.item_btn button{
+    height:56rpx;
+    margin:0;
+    line-height:56rpx;
+    text-align:center;
+    background:#e9e9e9;
+    border-radius:10rpx;
+    border:none;
+    font-size:12px;
+    color:#333;
+}

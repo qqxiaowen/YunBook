@@ -23,7 +23,7 @@ Page({
   // 根据书的id去请求该书的详情页
   getData(){
     fetch.get(`/book/${this.data.bookId}`).then(res=>{
-      // console.log(res)
+      console.log(res)
       // 处理更新时间
       let timeold = new Date(res.data.createTime).getTime()
       let timenow = new Date().getTime()

@@ -27,6 +27,12 @@ Page({
         })
       })
   },
+  // 点击跳转收藏详情
+  jumpcoreDetail() {
+    wx.navigateTo({
+      url: '/pages/coreDetail/coreDetail',
+    })
+  },
  
   /**
    * 用户点击右上角分享
