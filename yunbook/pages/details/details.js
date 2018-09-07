@@ -4,7 +4,8 @@ Page({
 
   data: {
     bookId:"",
-    bookInfor:""
+    bookInfor:"",
+    updataData:"",
   },
 
   /**
@@ -12,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options)
-    // 得到轮播图上书的id
+    // 得到书的id
     this.setData({
       bookId: options.id
     })
@@ -23,10 +24,29 @@ Page({
   getData(){
     fetch.get(`/book/${this.data.bookId}`).then(res=>{
       // console.log(res)
+      // 处理更新时间
+      let timeold = new Date(res.data.createTime).getTime()
+      let timenow = new Date().getTime()
+      let timecha = (timenow - timeold)/1000
+      let time=""
+
+      if(timecha<60){
+        time = Math.floor(timecha)+"秒"
+      }else if (timecha < 3600) {
+        time = Math.floor(timecha / 60) + "分"
+      }else if (timecha < 3600 * 24) {
+        time = Math.floor(timecha / 3600) + "小时"
+      }else if (timecha < 3600 * 24 * 30) {
+        time = Math.floor(timecha / 3600 / 24) + "天"
+      }else {
+        time = Math.floor(timecha / 3600 / 24 / 30) + "月"
+      }
+      
+
       this.setData({
-        bookInfor: res
+        bookInfor: res,
+        updataData:time
       })
-      // console.log(this.data.bookInfor)
     })
   },
   // 点击阅读跳转到该书的目录
@@ -38,7 +58,7 @@ Page({
   // 转发
   onShareAppMessage(res) {
     if(res.from === 'button'){
-      console.log('点击按钮分享')
+      // console.log('点击按钮分享')
     }
     return {
       title: this.data.bookInfor.data.title,
@@ -59,7 +79,7 @@ Page({
           title: '收藏成功',
           duration: 1000
         })
-        console.log(bookInfor)
+        // console.log(bookInfor)
         bookInfor.isCollect = 1
         this.setData({
           bookInfor
@@ -71,7 +91,6 @@ Page({
         duration: 1000
       })
     }
-
-
-  }
+  },
+  
 })

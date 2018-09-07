@@ -1,0 +1,28 @@
+<!--pages/userCore/userCore.wxml-->
+<view class='userCore'>
+<!-- 头部 -->
+  <view class='top'>
+  <!-- 用户信息 -->
+    <view class='userinfo'>
+      <view><image src='{{userinfo.avatarUrl}}'></image></view>
+      <text>欢迎你 {{userinfo.nickName}}</text>
+    </view>
+  <!-- 收藏关注 -->
+    <view class='coll_gz'>
+      <view class='mycoll'>
+        <text>{{corenum}}</text>
+        <text>收藏</text>
+      </view>
+      <view class='mygz'>
+        <text>0</text>
+        <text>关注</text>
+      </view>
+    </view>
+  </view>
+  <!-- 中部 -->
+  <view class='content'>
+    <image src='/static/img/YunBook_logo.png'></image>
+    <view>版本 1.0.0</view>
+  </view>
+ 
+</view>

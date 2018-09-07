@@ -6,7 +6,7 @@
   <!-- 轮播部分 -->
   <view class='LunBo index'>
     <swiper indicator-dots="{{indicatorDots}}" 
-      autoplay="true" interval="3000" duration="{{duration}}">
+      autoplay="true" interval="3000" circular="true">
       <block wx:for="{{LunBodata}}" wx:key="{{index}}">
         <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
           <image src="{{item.img}}" class="slide-image" />

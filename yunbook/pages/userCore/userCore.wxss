@@ -1,0 +1,61 @@
+.top{
+    padding: 30rpx 30rpx 0;
+    background: #1296db;
+    color: #fff;
+}
+.userinfo{
+    height: 120rpx;
+    line-height: 120rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.userinfo text{
+  margin-right: auto;
+}
+.userinfo view{
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 14rpx;
+    overflow: hidden;
+    border-radius:60rpx;
+}
+.userinfo view image{
+    width: 120rpx;
+    height: 120rpx;
+}
+.userinfo view text{
+    font-size: 15px;
+}
+
+.coll_gz{
+    display: flex;
+    font-size: 13px;
+    justify-content: space-around;
+}
+.mycoll, .mygz{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 16rpx 26rpx 26rpx;
+}
+
+.content{
+  /* position: absolute; */
+  margin: -20rpx auto;
+  /* left: 50%; */
+  /* top: 52%; */
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+}
+.content image{
+    width: 600rpx;
+    height: 600rpx;
+    margin: 50rpx auto 0;
+}
+.content view{
+    font-size: 16px;
+    font-weight: 700;
+    margin-top:-100rpx;
+    color: #1296db;
+    text-shadow: 2px 2px 12px #1296db
+}

@@ -3,7 +3,6 @@ import { fetch } from '../../utils/util.js'
 const app = getApp()
 
 Page({
- 
   data: { 
     // 书章节的id
     bookchapter:'',
@@ -29,10 +28,14 @@ Page({
     this.getbookcont()
     this.getCatalog()
   },
-
+  
   // 取得mardown数据
   getbookcont(){
     fetch.get(`/article/${this.data.bookchapter}`).then(res=>{
+      // console.log(res.data.title)
+      wx.setNavigationBarTitle({
+        title: res.data.title
+      })
 
       this.setData({
         // article:data,
@@ -49,7 +52,6 @@ Page({
       this.setData({
         bookMuli: res.data
       })
-
       // console.log(res.data)
     })
   },

@@ -25,12 +25,12 @@
     </view>
     <!-- 查看目录 -->
     <view class='cont_mulu'>
-      <view class='cont_mulu_l'>
+      <view class='cont_mulu_l' bindtap='jumpbookMulu' >
         <text class='cont_mulu_l_zt'>查看目录</text>
         <text>共{{bookInfor.length}}章</text>
       </view>
       <view class='cont_mulu_r'>
-        更新于2天前
+        更新于{{updataData}}前
       </view>
     </view>
 
