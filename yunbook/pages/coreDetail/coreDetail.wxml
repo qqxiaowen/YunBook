@@ -1,5 +1,7 @@
 <!--pages/coreDetail/coreDetail.wxml-->
-<view class='big_box' >
+ <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoding}}" ></image>
+<view wx:if="{{!isLoding}}">
+  <view class='big_box' >
   <view class='core_item' wx:for="{{core}}" wx:key="{{index}}">
     <image bindtap='jumpdetail' data-id='{{item.book._id}}' src="{{item.book.img}}"></image>
     <text>{{item.book.title}}</text>
@@ -10,12 +12,13 @@
   </view>
 </view>
 <!-- 上拉加载 -->
-  <view wx:if="{{onoff}}" class="loadmore">
+  <view wx:if="{{onoff && loding}}" class="loadmore">
       <image src="/static/img/loadMore.svg" ></image>
       <text>数据正拼命加载中...</text>
     </view>
-  <view wx:if="{{!onoff}}" class="no-more">
+  <view wx:if="{{!onoff && loding}}" class="no-more">
       <text>到底啦</text>
       <text class="line"></text>
   </view>
-<!-- <view style='height:400rpx'></view> -->
+</view>
+

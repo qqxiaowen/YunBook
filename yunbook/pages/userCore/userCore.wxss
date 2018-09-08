@@ -7,24 +7,23 @@
     height: 120rpx;
     line-height: 120rpx;
     display: flex;
-    justify-content: space-between;
 }
-.userinfo text{
-  margin-right: auto;
-}
-.userinfo view{
+.userinfo .userinfo_l{
     width: 120rpx;
     height: 120rpx;
     margin-right: 14rpx;
     overflow: hidden;
     border-radius:60rpx;
 }
-.userinfo view image{
+.userinfo .userinfo_l iopen-data{
     width: 120rpx;
     height: 120rpx;
 }
-.userinfo view text{
-    font-size: 15px;
+.userinfo .userinfo_r {
+    font-size: 16px;
+}
+.userinfo .userinfo_r text{
+  margin-right: 16rpx;
 }
 
 .coll_gz{

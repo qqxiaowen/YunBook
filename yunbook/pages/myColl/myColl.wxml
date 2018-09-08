@@ -1,23 +1,30 @@
-<view class='big_box'>
+  <image src='/static/img/loading.svg' class="loading" wx:if="{{isLoading}}"></image>
+<view class='big_box' wx:if="{{!isLoading}}">
   <view class='item_coll' wx:for="{{mycoll}}" wx:key="{{index}}">
     <image src='{{item.book.img}}'></image>
     <view class='item_coll_right'>
       <view class='item_biaoti'>{{item.book.title}}</view>
-      <view class='item_zhangjie'>书籍11/27章节</view>
-      <view class='item_jindu'>
-        <view class='item_t'>
-          <view>进度条</view>
-          <view>已看66%</view>
-        </view>
-        <view class='item_b'>
-          <view>上次查看：数值的扩展</view>
-          <view>1分前</view>
-        </view>
+      <view class='item_zhangjie'>书籍{{item.title.index+1}}/{{item.title.total}}章节</view>
+      <view class='item_t'>
+        <text>已看{{item.jindu}}%</text>
+        <progress percent="{{item.jindu}}"  Number active activeColor="#1296db"></progress>
       </view>
+        <!-- <view class='item_t'> -->
+          <!-- <progress percent="{{item.jindu}}"  show-info active/> -->
+          <!-- <view class='item_t_r'>已看{{item.jindu}}%</view> -->
+        <!-- </view> -->
+        <view class='item_b'>
+          <view class='item_b_l'>
+              <text class='wz1'>上次查看：</text> 
+              <text class='wz2'>{{item.title.title}}</text> 
+          </view>
+          <view class='item_b_r'>{{item.lastlook }}前</view>
+        </view>
       <view class='item_btn'>
-        <button>继续阅读</button>  
-        <button>查看文档</button>  
+        <button bindtap='gumpContinue' data-bookid="{{item.title.bookId}}" data-id="{{item.title._id}}">继续阅读</button>  
+        <button bindtap='gumpDetail' data-id="{{item.title.bookId}}">查看文档</button>  
       </view>
     </view>
   </view>
+  
 </view>

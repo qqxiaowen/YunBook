@@ -1,21 +1,13 @@
 // pages/userCore/userCore.js
-import {fetch} from '../../utils/util.js'
+import { fetch, login} from '../../utils/util.js'
 Page({
 
   data: {
-    userinfo:'',
-    corenum:''
+    corenum:'',
+    isLoding:true
   },
 
   onLoad: function () {
-    wx.getUserInfo({
-      success:res=>{
-        // console.log(res)
-        this.setData({
-          userinfo: res.userInfo
-        })
-      }
-    })
   },
   // 显示页面会触发
   onShow(){
@@ -23,7 +15,8 @@ Page({
       fetch.get('/collection/total').then(res => {
         // console.log(res)
         this.setData({
-          corenum: res.data
+          corenum: res.data,
+          isLoding:false
         })
       })
   },

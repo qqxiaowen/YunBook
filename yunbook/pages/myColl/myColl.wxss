@@ -8,7 +8,7 @@
 }
 .item_coll image{
     width: 220rpx;
-    height: 280rpx;
+    height: 300rpx;
     margin-right: 10rpx;
 }
 .item_coll_right{
@@ -20,28 +20,34 @@
     color: #757575;
 }
 .item_biaoti{
+    width:474rpx;
+    height: 40rpx;
     color: #333;
     font-size: 15px;
+    overflow: hidden;
 }
-.item_jindu{
-    
+
+.item_t text{
+  float: right;
 }
-.item_jindu .item_t{
+.item_t progress{
+  width: 300rpx;
+  margin-top: 10rpx;
+}
+.item_b{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 16rpx;
 }
-.item_jindu .item_t :last-child{
-    text-align: right;
+.item_b .item_b_l{
+    width: 330rpx;
+    height: 80rpx;
+    overflow: hidden;
 }
-.item_jindu .item_b{
-    display: flex;
-    justify-content: space-between;
+.item_b .item_b_l .wz1{
+  float: left;
+  height: 80rpx;
 }
-.item_jindu .item_b:first-child{
-    width: 200rpx;
-}
-.item_jindu .item_b:last-child{
+.item_b .item_b_r{
     text-align: right;
 }
 .item_btn{

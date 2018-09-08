@@ -4,12 +4,11 @@ Page({
   data: {
     pn:1,
     core:'',
-    onoff:true
+    onoff:true,
+    loding:false,
+    isLoding:true
   },
 
-  onLoad: function (options) {
-  this.getCore()
-  },
   // 获取数据
   getCore(){
     fetch.get('/collection', {
@@ -17,9 +16,28 @@ Page({
       size: 4
     }).then(res => {
       this.setData({
-        core: res.data
+        core: res.data,
+        isLoding:false
       })
-      console.log(res.data)
+     if(res.data.length == 4){
+       this.setData({
+         loding:true
+       })
+     } else if (res.data.length == 0){
+       wx.showModal({
+         title: '小提示',
+         content: '还没有添加任何收藏，快去添加吧！',
+         showCancel: false,
+         success(res){
+           wx.switchTab({
+             url: '/pages/userCore/userCore'
+           })
+         }         
+       })
+       
+     }
+      console.log(this.data.loding)
+      // console.log(res.data)
     })
   },
   // 点击跳转书籍详情
@@ -42,17 +60,15 @@ Page({
         duration: 1000
       })
       this.getyemian()
+      this.getMoreyemian()
     }).catch(err=>{
       console.log(err)
     })
    
   },
-  
-  // 上拉获取更多数据
-  onReachBottom(){
-    // console.log(this.data.core.length/4)
-    // console.log(this.data.core.length%4)
-    if (this.data.onoff){
+  // 获取更多数据
+  getMoreyemian(){
+    if (this.data.onoff) {
       this.setData({
         pn: this.data.pn + 1
       })
@@ -60,11 +76,11 @@ Page({
         pn: this.data.pn,
         size: 4
       }).then(res => {
+        this.setData({
+          core: [...this.data.core, ...res.data],
+        })
         console.log(res.data)
-          this.setData({
-            core: [...this.data.core, ...res.data],
-          })
-        if (res.data.length<4){
+        if (res.data.length < 4) {
           this.setData({
             onoff: false
           })
@@ -72,11 +88,21 @@ Page({
       })
     }
   },
+  // 上拉获取更多数据
+  onReachBottom(){
+    this.getMoreyemian()
+  },
+  // 页面显示/切入前台时触发
+  onLoad(){
+    this.getyemian()
+  },
   // 刷新页面
   getyemian(){
     this.setData({
       pn: 1,
-      onoff: true
+      onoff: true,
+      loding: false,
+      isLoding: true
     })
     this.getCore();
   },
